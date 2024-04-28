@@ -9,4 +9,5 @@ Welcome to this repository! Here, you'll find a collection of Ansible playbooks 
 
 2. **Clone the Repository:**
 ```bash
-git clone https://github.com/alireza-frj4/Ansible-my-example.git```
+git clone https://github.com/alireza-frj4/Ansible-my-example.git
+```
