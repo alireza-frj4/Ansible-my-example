@@ -1,0 +1,19 @@
+---
+- name: Manage users using Ansible
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Create a new user
+      user:
+        name: Ahmad
+        password: $6$mysecretsalt$ZRGl6TsIhd37PrAGVXFRwy1ZFX1OeK3a/pKAipOa6yldjBxAcuSFgobz6FPLf5HIEfevzN8nYbtpPBflmYhrj/ 
+        state: present
+        groups: happys
+        shell: /bin/bash
+        createhome: yes
+
+    - name: Delete an existing user
+      user:
+        name: Abbas
+        state: absent
