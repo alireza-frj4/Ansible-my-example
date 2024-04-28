@@ -8,4 +8,5 @@ Welcome to this repository! Here, you'll find a collection of Ansible playbooks 
    - Make sure you have Ansible installed on your system. If not, you can download it from here.
 
 2. **Clone the Repository:**
-git clone https://github.com/alireza-frj4/Ansible-my-example.git
+```bash
+git clone https://github.com/alireza-frj4/Ansible-my-example.git```
