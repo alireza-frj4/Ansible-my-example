@@ -1,0 +1,46 @@
+---
+- name: Update packages, install essentials
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Update package cache
+      yum:
+        name: '*'
+        state: latest
+      register: updated_packages
+
+    - name: Install essential packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - git
+        - vim
+        - wget
+        - unzip
+
+    - name: Download a temp
+      get_url:
+        url: "https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip"
+        dest: "/tmp/file.zip"
+
+    - name: Unzip the temp file
+      unarchive:
+        src: "/tmp/file.zip/little-fashion.zip"
+        dest: "/tmp/"
+        remote_src: yes
+
+    - name: Clean up wget and unzip packages
+      yum:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - wget
+        - unzip
+
+    - name: Remove the downloaded ZIP file
+      file:
+        path: "/tmp/file.zip"
+        state: absent
