@@ -1,0 +1,15 @@
+---
+- name: Manage a service using systemctl
+  hosts: my_server
+  become: yes
+
+  tasks:
+    - name: Start the nginx service
+      systemd:
+        name: nginx
+        state: started
+
+    - name: Enable nginx to start on boot
+      systemd:
+        name: nginx
+        enabled: yes
